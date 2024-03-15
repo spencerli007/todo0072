@@ -12,28 +12,28 @@
           <div class="card rounded-3">
             <div class="card-body p-4">
   
-              <h4 class="text-center my-3 pb-3">To Do App</h4>
+              <h4 class="text-center my-3 pb-3">事 件 列 表</h4>
   
               <form method="POST" class="row row-cols-lg-auto g-3 justify-content-center align-items-center mb-4 pb-2">
                 {% csrf_token %}
                 <div class="col-12">
                   <div class="form-outline">
-                    <input type="text" id="form1" class="form-control" name="task" placeholder="Enter a task here"/>
+                    <input type="text" id="form1" class="form-control" name="task" placeholder="在此輸入事件"/>
                   </div>
                 </div>
   
                 <div class="col-12">
-                  <button type="submit" class="btn btn-primary">Add Task</button>
+                  <button type="submit" class="btn btn-primary">加入事件</button>
                 </div>
               </form>
-              <a href="{% url 'logout' %}"><button style="background: firebrick; color:white;" type="submit" class="btn btn-primary">Logout</button></a>
+              <a href="{% url 'logout' %}"><button style="background: firebrick; color:white;" type="submit" class="btn btn-primary">登出</button></a>
 
               <table class="table mb-4">
                 <thead>
                   <tr>
-                    <th scope="col">Todo item</th>
-                    <th scope="col">Status</th>
-                    <th scope="col">Actions</th>
+                    <th scope="col">事件</th>
+                    <th scope="col">狀況</th>
+                    <th scope="col">可以執行的動作</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -42,14 +42,14 @@
                     <td>{{i.todo_name}}</td>
 
                     {% if i.status == True %}
-                      <td>Completed</td>
+                      <td>已完成</td>
                     {% else %}
-                      <td>In progress</td>
+                      <td>進行中</td>
                     {% endif %}
 
                     <td>
-                      <a href="{% url 'delete' i.todo_name %}"><button type="submit" class="btn btn-danger">Delete</button></a>
-                      <a href="{% url 'update' i.todo_name %}"><button type="submit" class="btn btn-success ms-1">Finished</button></a>
+                      <a href="{% url 'delete' i.todo_name %}"><button type="submit" class="btn btn-danger">刪除</button></a>
+                      <a href="{% url 'update' i.todo_name %}"><button type="submit" class="btn btn-success ms-1">終完</button></a>
                     </td>
                   </tr>
                   {% endfor %}

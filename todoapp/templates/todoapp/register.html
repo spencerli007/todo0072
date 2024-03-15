@@ -2,16 +2,14 @@
 <!-- Coding by CodingLab | www.codinglabweb.com-->
 <html lang="en" dir="ltr">
   <head>
-
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    
     <title>Login</title>
    </head>
+
 <body>
   <div class="wrapper">
-    <h2>Register</h2><br>
+    <h2>註 冊 畫 面</h2><br>
     {% if messages %}
       {% for message in messages %}
         <h2 style="color: #b22222;">{{message}}</h2>
@@ -20,25 +18,24 @@
     <form action="#" method="POST">
       {% csrf_token %}
       <div class="input-box">
-        <input type="text" placeholder="Create a username" required name="username">
+        <input type="text" placeholder="在此輸入帳號" required name="username">
       </div>
       <div class="input-box">
-        <input type="email" placeholder="Enter your email" required name="email">
+        <input type="email" placeholder="在此輸入Email" required name="email">
       </div>
       <div class="input-box">
-        <input type="password" placeholder="Enter your password" required name="password">
+        <input type="password" placeholder="在此輸入密碼" required name="password">
       </div>
       <div class="policy">
       </div>
       <div class="input-box button">
-        <input type="Submit" value="Register">
+        <input type="Submit" value="確定">
       </div>
       <div class="text">
-        <!-- h3>Don't have an account? <a href="#">Register now</a></h3 -->
-        <h3>Don't have an account? <a href="{% url 'login' %}">Login</a></h3>
+        <h3>若已有帳號，請按 <a href="{% url 'login' %}">登入</a></h3>
       </div>
       <div class="text">
-        <h3>Forgot Password? <a href="#">Reset</a></h3>
+        <h3>若忘記密碼，請按 <a href="#">重置</a></h3>
       </div>
     </form>
   </div>
